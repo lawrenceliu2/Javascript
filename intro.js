@@ -25,7 +25,7 @@ var fact = function(n) {
 
 //(define fact (lambda (n) ...)
 var factR = function(n) {
-    if ( n<=1 ) {
+    if ( n <= 1 ) {
 	return 1;
     }
     else {
@@ -67,3 +67,25 @@ var o = { 'name' : 'Thluffy',
 	      return x+30;
 	  }
 };
+
+var buttonCallback = function (e) {
+    console.log(e);
+    console.log(this);
+}
+
+var b = document.getElementById("b");
+b.addEventListener("click", buttonCallback);
+
+var redCallback = function(e) {
+    console.log(this);
+    this.classList.add("red");
+};
+
+b.addEventListener("click", redCallback);
+
+var buttonAdd = function(k) {
+    console.log(this);
+    addItem("ayo");
+};
+
+b.addEventListener("click", buttonAdd);
