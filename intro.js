@@ -6,29 +6,44 @@ var addItem = function(text) {
     list.appendChild(newitem);
 };
 
-
-//remove specified item from list
-var removeItem = function(n) {
-    var listitems = document.getElementsByTagName('li');
-    listitems[n].remove();
-    console.log("remove items");
-};
-
-var items = document.getElementsByTagName("li");
-for(var i = 0; i < items.length; i++) {
-    items[i].addEventListener("click", deleteCallback);
-}
-
-var b = document.getElementById("b");
-
-var deleteCallback = function(e) {
-    console.log(this);
-    this.remove()
-};
-
 var buttonAdd = function(k) {
-    console.log(this);
     addItem("item " + document.getElementsByTagName("li").length);
 };
 
+var b = document.getElementById("b");
+
 b.addEventListener("click", buttonAdd);
+
+var deleteCallback = function(e) {
+    this.remove()
+};
+
+var removeStuff = function (x) {
+    var items = document.getElementsByTagName("li");
+    for(var i = 0; i < items.length; i++) {
+	items[i].addEventListener("click", deleteCallback);
+    }
+};
+
+b.addEventListener("click", removeStuff);
+
+
+var head = function (z) {
+    console.log();
+    document.getElementById("h").innerHTML = "lol idk what goes here";
+};
+
+var showHead = function (y) {
+    var items = document.getElementsByTagName("li");
+    for(var i = 0; i < items.length; i++) {
+	items[i].addEventListener("mouseover", head);
+    }
+};
+
+b.addEventListener("mouseover", showHead);
+
+var helloWorld = function (q) {
+    document.getElementById("h").innerHTML="Hello World!";
+};
+
+b.addEventListener("mouseout", helloWorld);
