@@ -1,6 +1,7 @@
 //add list item 
-var addItem = function(text) {
-    var list = document.getElementById("thelist");
+var addItem = function(text, buttonid) {
+    if (buttonid == "b") { var list = document.getElementById("thelist"); }
+    else if (buttonid == "be") { var list = document.getElementById("list2"); }
     var newItem = document.createElement("li");
     newItem.innerHTML = text;
     newItem.addEventListener("mouseover", head);
@@ -9,8 +10,8 @@ var addItem = function(text) {
     list.appendChild(newItem);
 };
 
-var buttonAdd = function(k) {
-    addItem("item " + document.getElementsByTagName("li").length);
+var buttonAdd = function() {
+    addItem("item " + document.getElementsByTagName("li").length, this.id);
 };
 
 var b = document.getElementById("b");
@@ -42,4 +43,8 @@ for(var i = 0; i < items.length; i++) {
     items[i].addEventListener("mouseover", head);
     items[i].addEventListener("mouseout", helloWorld);
 }
+
+var be = document.getElementById("be");
+
+be.addEventListener("click", buttonAdd("list2"));
 
