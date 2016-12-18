@@ -1,7 +1,5 @@
-//add list item 
-var addItem = function(text, buttonid) {
-    if (buttonid == "b") { var list = document.getElementById("thelist"); }
-    else if (buttonid == "be") { var list = document.getElementById("list2"); }
+var addItem = function(text) {
+    var list = document.getElementById("thelist");
     var newItem = document.createElement("li");
     newItem.innerHTML = text;
     newItem.addEventListener("mouseover", head);
@@ -11,7 +9,7 @@ var addItem = function(text, buttonid) {
 };
 
 var buttonAdd = function() {
-    addItem("item " + document.getElementsByTagName("li").length, this.id);
+    addItem("item " + document.getElementsByTagName("li").length);
 };
 
 var b = document.getElementById("b");
@@ -46,5 +44,35 @@ for(var i = 0; i < items.length; i++) {
 
 var be = document.getElementById("be");
 
-be.addEventListener("click", buttonAdd("list2"));
+var fibonacci = function (num){
+    var a = 1;
+    var b = 0;
+
+    while (num >= 0){
+	temp = a;
+	a = a + b;
+	b = temp;
+	num--;
+    }
+    return b;
+}
+
+var count = 0;
+
+var addItem2 = function() {
+    var list = document.getElementById("list2");
+    var newItem = document.createElement("li");
+    newItem.innerHTML = fibonacci(count);
+    count++;
+    newItem.addEventListener("mouseover", head);
+    newItem.addEventListener("mouseout", helloWorld);
+    newItem.addEventListener("click", deleteCallback);
+    list.appendChild(newItem);
+};
+
+var buttonAdd2 = function() {
+    addItem2("item " + document.getElementsByTagName("li").length);
+};
+
+be.addEventListener("click", buttonAdd2);
 
